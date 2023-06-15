@@ -13,6 +13,10 @@ public class Book {
     // normal vars
     private String title;
     private String isbn;
+
+    @ManyToOne
+    private Publisher publisher;
+
     // setting up many to many relationship to authors
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name="book_id"),
@@ -31,6 +35,16 @@ public class Book {
     }
 
     // getters and setters
+
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     public Long getId() {
         return id;
     }
